@@ -7,6 +7,16 @@ import vendedores from "../data/vendedores.json";
 import comunidadesData from "../data/comunidades.json";
 import { fetchSponsorStats } from "../services/api";
 
+import L from "leaflet";
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconUrl: "/images/marker-icon.png",
+  shadowUrl: "/images/marker-shadow.png",
+});
+
+
 export default function Dashboard({ sponsor, onClose, impactedUsers, totalStores, totalCommunities }) {
   const modalRef = useRef();
   const [stats, setStats] = useState({
