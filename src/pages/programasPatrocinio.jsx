@@ -39,49 +39,14 @@ export default function Programas() {
           </p>
         </div>
 
-        <div className="container-swiper">
-          <Swiper
-            ref={swiperRef}
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={"auto"}
-            loopPreventsSliding={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-            pagination={{ el: ".swiper-pagination", clickable: true }}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-              clickable: true,
-            }}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className="swiper_container"
-          >
-            {programas.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div key={index}>
-                  <CardPatrocinio {...item} />
-                </div>
-              </SwiperSlide>
-            ))}
-
-            <div className="slider-controler">
-              <div className="swiper-button-prev slider-arrow">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-              </div>
-              <div className="swiper-button-next slider-arrow">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </div>
-              <div className="swiper-pagination"></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-16">
+          {programas.map((item, index) => (
+            <div key={index}>
+              <CardPatrocinio {...item} />
             </div>
-          </Swiper>
+          ))}
         </div>
+
 
       </div>
     </div>
